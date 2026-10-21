@@ -1,0 +1,26 @@
+seller_catalog:
+  input_path: "data/seller_catalog_dirty.csv"
+  hudi_output_path: "file:///E:/2025EM1100056/ecommerce_recommendation/local/output/seller_catalog_hudi/"
+  quarantine_csv_path: "output/quarantine/seller_catalog_quarantine.csv"
+  hudi_record_key: "seller_id,item_id"
+  hudi_precombine_field: "last_updated_ts"
+
+company_sales:
+  input_path: "data/company_sales_dirty.csv"
+  hudi_output_path: "file:///E:/2025EM1100056/ecommerce_recommendation/local/output/company_sales_hudi/"
+  quarantine_csv_path: "output/quarantine/quarantine_company_sales.csv"
+  hudi_record_key: "item_id"
+  hudi_precombine_field: "sale_date"
+
+competitor_sales:
+  input_path: "data/competitor_sales_dirty.csv"
+  hudi_output_path: "file:///E:/2025EM1100056/ecommerce_recommendation/local/output/competitor_sales_hudi/"
+  quarantine_csv_path: "output/quarantine/competitor_sales_quarantine.csv"
+  hudi_record_key: "seller_id,item_id"
+  hudi_precombine_field: "last_updated_ts"
+  
+recommendation:
+  seller_catalog_hudi: "file:///E:/2025EM1100056/ecommerce_recommendation/local/output/seller_catalog_hudi/"
+  company_sales_hudi: "file:///E:/2025EM1100056/ecommerce_recommendation/local/output/company_sales_hudi/"
+  competitor_sales_hudi: "file:///E:/2025EM1100056/ecommerce_recommendation/local/output/competitor_sales_hudi/"
+  output_csv: "output/top10_recommendations/recommendations.csv"
